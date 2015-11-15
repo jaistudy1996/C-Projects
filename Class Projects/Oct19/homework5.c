@@ -42,7 +42,6 @@ struct requisite {
 
 /* find a course by id, if it is not found, will return null */
 struct course * findCourse( char *  id ) {
-
    for ( int x = 0 ; strlen(courses[x].id) > 0 ; x++ ) {
         if ( strcmp(courses[x].id, id) == 0  ) {
             return &courses[x];
@@ -67,17 +66,12 @@ void setRequisites(struct course * ptrCourse) {
 
 void printCourse(struct course * ptrCourse) {
        printf("%s %s\n", ptrCourse->id, ptrCourse->name);
-
-       
        for ( int x = 0 ; ptrCourse->prerequisites[x] ; x++ ) {
-         
            //print blanks at the beginning of each line
            for ( int y = 0 ; y < BLANK ; y++ ) {
                printf(" ");
            }
-
            printf("%s %s\n", ptrCourse->prerequisites[x]->id, ptrCourse->prerequisites[x]->name);
-
        }
 }
 
@@ -97,7 +91,6 @@ void printAllCourses(struct course *ptrCourse, int blank){
     }
   }
 }
-
 
 int main ( int arc, char *argv[] ) {
   for ( int x = 0 ; strlen(courses[x].id) > 0 ; x++ ) {
